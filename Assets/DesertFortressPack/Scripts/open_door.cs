@@ -19,6 +19,8 @@ public class open_door : MonoBehaviour
 	public bool open = false;
 	public bool enter = false;
 	public string defined_key = "e";
+    public Transform player;
+    public float playerDistance;
 	
 	// Update is called once per frame
 	void Update () 
@@ -41,10 +43,11 @@ public class open_door : MonoBehaviour
 	
 		if(enter == true)
 		{
-			if(Input.GetKeyDown(defined_key))
+            playerDistance = Vector3.Distance(player.position, transform.position);
+            if (Input.GetKeyDown(defined_key) && playerDistance < 5f)
 			{
-				open = !open;
-			}
+                    open = !open;
+            }
 		}	
 	}
 
@@ -67,6 +70,5 @@ public class open_door : MonoBehaviour
 			(enter) = false;
 		}
 	}
-	//@youtube.com/user/maksimum654321
 }
 

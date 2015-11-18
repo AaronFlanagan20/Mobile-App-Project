@@ -1,57 +1,74 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAI : MonoBehaviour{
+public class EnemyAI : MonoBehaviour
+{
 
     public Transform player;
     public float playerDistance;
-    public float rotationDamping;
-    public float moveSpeed;
+    private float rotationDamping = 10;
+    public GameObject bullet;
+    public AudioClip spas;
+
+    private float fireRate;
+    private float nextFire = 2f;
 
     void Update()
     {
         if (PlayerScript.isPlayerAlive)
         {
-            playerDistance = Vector3.Distance(player.position, transform.position);
-
-            if (playerDistance < 15f)
+            if (PlayerScript.isLevel3)
             {
-                lookAtPlayer();
-            }
+                playerDistance = Vector3.Distance(player.position, transform.position);
 
-            if (playerDistance < 12f)
-            {
-                Debug.Log("Attack");
-                attack();
-                if (playerDistance > 7f)
+                if (playerDistance < 30f)
                 {
-                    chase();
+                    lookAtPlayer();
+                }
+                
+                if (playerDistance < 25f && fireRate <= Time.time)
+                {
+                    fireRate = Time.time + nextFire;
+                    attack();
                 }
             }
+            else
+            {
+                playerDistance = Vector3.Distance(player.position, transform.position);
+
+                if (playerDistance < 20f)
+                {
+                    lookAtPlayer();
+                }
+
+                if (playerDistance < 15f && fireRate <= Time.time)
+                {
+                    fireRate = Time.time + nextFire;
+                    attack();
+                }
+            }
+      
         }
     }
 
-    void lookAtPlayer()
+   private void lookAtPlayer()
     {
         Quaternion rotation = Quaternion.LookRotation(player.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotationDamping);
     }
 
-    void chase()
-    {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-    }
+   private void attack()
+     {
 
-    void attack()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
-        {
-            if(hit.collider.gameObject.tag == "Player")
+         RaycastHit hit;
+         if (Physics.Raycast(transform.position, transform.forward, out hit))
+         {
+          
+            if (hit.collider.gameObject.tag == "Player")
             {
-                PlayerScript.curHealth -=  1;
-            }
+                PlayerScript.curHealth -=  10;
+                audio.PlayOneShot(spas);
+             }
         }
     }
-
 }

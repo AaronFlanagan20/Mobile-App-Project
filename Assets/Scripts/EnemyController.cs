@@ -16,6 +16,5 @@ public class EnemyController : MonoBehaviour {
     {
         enemyHealth -= 50;
         PlayerScript.score += 20;
-        Debug.Log("Hit head");
     }
 }

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PauseGame : MonoBehaviour {
 
-	public bool expensiveQualitySettings = true; 
 	private bool isPaused = false; 
 	
 	private void Update() { 

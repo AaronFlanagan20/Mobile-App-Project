@@ -9,13 +9,12 @@ public class FireGun : MonoBehaviour {
 
     private bool reloading = false;//is true while reloading
 
-    // private float range = 100.0f;
     public int clip = 2; //how many clips you have
     public int bullets = 6;//how many bullets per clip
-    public int reloadTime = 100;//time to reload
+    public int reloadTime = 3;//time to reload
 
-    public float fireRate = 0.1f;
-    public float nextFire = 0.0f;
+    public float fireRate;
+    public float nextFire = 1;
   
     public GameObject bulletPrefab;
     private EnemyController enemy;
@@ -29,10 +28,10 @@ public class FireGun : MonoBehaviour {
 	void Update () {
         Screen.showCursor = false;
 
-        if (Input.GetMouseButton(0) && Time.time > nextFire)
+        if (Input.GetMouseButton(0) &&  fireRate <= Time.time)
         {
-            nextFire = Time.time + fireRate;
-            if (bullets > 0)//if you have bullets
+            fireRate = Time.time + nextFire;
+            if (bullets > 0 && !reloading)//if you have bullets
             {
                 Debug.Log("Calling shoot");
                 Shoot();//call method
@@ -40,7 +39,6 @@ public class FireGun : MonoBehaviour {
             else if (clip > 0 && reloading != true)//and have clips
             {
                 StartCoroutine(Reload());//call reload
-                reloading = false;//done reload
                 Debug.Log("reloaded");
             }
             else if (clickSound)//play click sound
@@ -76,10 +74,11 @@ public class FireGun : MonoBehaviour {
 
     IEnumerator Reload()
     {
-        reloading = true;//reloading is true
         clip -= 1;//minus a clip
+        reloading = true;
         audio.PlayOneShot(reloadSound);//play sound
         bullets = 6;//bullets now available
         yield return new WaitForSeconds(reloadTime); // wait the reload time
+        reloading = false;
     }
 }
