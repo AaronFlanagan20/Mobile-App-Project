@@ -91,6 +91,8 @@ public class PlayerScript : MonoBehaviour {
         score += timeLeft;
         Application.LoadLevel("win");
         Screen.showCursor = true;
+        http postScore = gameObject.GetComponent<http>();
+        postScore.UpdateScores(score);
     }
 
     void OnGUI()

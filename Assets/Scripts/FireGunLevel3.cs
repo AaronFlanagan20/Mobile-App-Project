@@ -9,7 +9,7 @@ public class FireGunLevel3 : MonoBehaviour {
 
     private bool reloading = false;//is true while reloading
 
-    public static int clip = 3; //how many clips you have
+    public static int clip = 10; //how many clips you have
     public static int bullets = 4;//how many bullets per clip
     private int reloadTime = 3;//time to reload
 

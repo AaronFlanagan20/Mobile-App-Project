@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DesertFortressPack\Scripts\open_door.cs" />
+     <Compile Include="Assets\Scripts\BossAI.cs" />
      <Compile Include="Assets\Scripts\ChangeScenes.cs" />
      <Compile Include="Assets\Scripts\Crosshair.cs" />
      <Compile Include="Assets\Scripts\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\FireGun.cs" />
      <Compile Include="Assets\Scripts\FireGunLevel1.cs" />
      <Compile Include="Assets\Scripts\FireGunLevel2.cs" />
      <Compile Include="Assets\Scripts\FireGunLevel3.cs" />
@@ -62,6 +62,9 @@
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\RevolverAimDownSight.cs" />
      <Compile Include="Assets\Scripts\SelfDestruct.cs" />
+     <Compile Include="Assets\Scripts\db scipts\PlayerPrefsX.cs" />
+     <Compile Include="Assets\Scripts\db scipts\SimpleJSON.cs" />
+     <Compile Include="Assets\Scripts\db scipts\http.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Owner/Documents/Mobile-App-Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

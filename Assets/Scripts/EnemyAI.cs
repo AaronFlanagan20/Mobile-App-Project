@@ -59,7 +59,6 @@ public class EnemyAI : MonoBehaviour
 
    private void attack()
      {
-
          RaycastHit hit;
          if (Physics.Raycast(transform.position, transform.forward, out hit))
          {
