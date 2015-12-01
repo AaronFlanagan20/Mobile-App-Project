@@ -62,6 +62,8 @@
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\RevolverAimDownSight.cs" />
      <Compile Include="Assets\Scripts\SelfDestruct.cs" />
+     <Compile Include="Assets\Scripts\SwitchWeapons.cs" />
+     <Compile Include="Assets\Scripts\SwitchWeaponsLevel3.cs" />
      <Compile Include="Assets\Scripts\db scipts\PlayerPrefsX.cs" />
      <Compile Include="Assets\Scripts\db scipts\SimpleJSON.cs" />
      <Compile Include="Assets\Scripts\db scipts\http.cs" />

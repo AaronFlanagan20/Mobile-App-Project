@@ -1,16 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-//Instruction:
-//Make an empty game object and call it "Door"
-//Rename your 3D door model to "Body"
-//Parent a "Body" object to "Door"
-//Make sure thet a "Door" object is in left down corner of "Body" object. The place where a Door Hinge need be
-//Add a box collider to "Door" object and make it much bigger then the "Body" model, mark it trigger
-//Assign this script to a "Door" game object that have box collider with trigger enabled
-//Press "e" (Default) to open and close the door
-//Make sure the main character is tagged "player"
-
 public class open_door : MonoBehaviour 
 {
 	public float smooth = (float)2.0;

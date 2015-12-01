@@ -4,13 +4,14 @@ using SimpleJSON;
 
 public class http : MonoBehaviour
 {
-    private string postScoreURL = "";
+    private string postScoreURL = "https://g00330035.azure-mobile.net/";
 
     private string[] usernames = new string[10];
     private string[] scores = new string[10];
 
     public IEnumerator UpdateScores(int score)
     {
+        Debug.Log("Start method");
         string username = PlayerPrefs.GetString("username");
         if (string.IsNullOrEmpty(username) == true)
         {
@@ -30,6 +31,7 @@ public class http : MonoBehaviour
         WWW www = new WWW(postScoreURL, form);
         // Wait until the download is done
         yield return www;
+        Debug.Log("Sent");
 
         if (!string.IsNullOrEmpty(www.error))
         {

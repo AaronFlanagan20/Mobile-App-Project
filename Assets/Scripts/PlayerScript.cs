@@ -117,20 +117,45 @@ public class PlayerScript : MonoBehaviour {
 
         if (level2Complete)
         {
-            GUI.Label(new Rect(635, 1, 100, 20), "Bullets");
-            GUI.Box(new Rect(580, 20, 150, 20), "" + FireGunLevel2.bullets);
+            SwitchWeapons switchWeapons = gameObject.GetComponent<SwitchWeapons>();
 
-            GUI.Label(new Rect(830, 1, 100, 20), "Clips");
-            GUI.Box(new Rect(770, 20, 150, 20), "" + FireGunLevel2.clip);
+            if (switchWeapons.isMachine) {
+                GUI.Label(new Rect(635, 1, 100, 20), "Bullets");
+                GUI.Box(new Rect(580, 20, 150, 20), "" + FireGunLevel2.bullets);
+
+                GUI.Label(new Rect(830, 1, 100, 20), "Clips");
+                GUI.Box(new Rect(770, 20, 150, 20), "" + FireGunLevel2.clip);
+            }
+            if (switchWeapons.isPistol)
+            {
+                GUI.Label(new Rect(635, 1, 100, 20), "Bullets");
+                GUI.Box(new Rect(580, 20, 150, 20), "" + FireGunLevel1.bullets);
+
+                GUI.Label(new Rect(830, 1, 100, 20), "Clips");
+                GUI.Box(new Rect(770, 20, 150, 20), "" + FireGunLevel1.clip);
+            }
         }
 
         if (level3Complete)
         {
-            GUI.Label(new Rect(635, 1, 100, 20), "Bullets");
-            GUI.Box(new Rect(580, 20, 150, 20), "" + FireGunLevel3.bullets);
+            SwitchWeaponsLevel3 switchWeaponsL3 = GetComponent<SwitchWeaponsLevel3>();
 
-            GUI.Label(new Rect(830, 1, 100, 20), "Clips");
-            GUI.Box(new Rect(770, 20, 150, 20), "" + FireGunLevel3.clip);
+            if (switchWeaponsL3.isSniper)
+            {
+                GUI.Label(new Rect(635, 1, 100, 20), "Bullets");
+                GUI.Box(new Rect(580, 20, 150, 20), "" + FireGunLevel3.bullets);
+
+                GUI.Label(new Rect(830, 1, 100, 20), "Clips");
+                GUI.Box(new Rect(770, 20, 150, 20), "" + FireGunLevel3.clip);
+            }
+            if (switchWeaponsL3.isPistol)
+            {
+                GUI.Label(new Rect(635, 1, 100, 20), "Bullets");
+                GUI.Box(new Rect(580, 20, 150, 20), "" + FireGunLevel1.bullets);
+
+                GUI.Label(new Rect(830, 1, 100, 20), "Clips");
+                GUI.Box(new Rect(770, 20, 150, 20), "" + FireGunLevel1.clip);
+            }
         }
 
     }
