@@ -3,7 +3,12 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
-    public static float timeLimit = 300.0f;
+    public static float timeLimit = 100.0f;
+
+    public static void setTime(float time)
+    {
+        timeLimit = time;
+    }
 
     private int maxHealth = 100;
     public static int curHealth = 100;
@@ -56,7 +61,13 @@ public class PlayerScript : MonoBehaviour {
             isPlayerAlive = false;
             Application.LoadLevel("GameOver");
          }
-        else if (Input.GetMouseButton(0) && FireGunLevel2.bullets == 0 && FireGunLevel2.clip == 0)
+        else if (Input.GetMouseButton(0) && FireGunLevel2.bullets == 0 && FireGunLevel2.clip == 0 && FireGunLevel1.bullets == 0 && FireGunLevel1.clip == 0)
+        {
+            Screen.showCursor = true;
+            isPlayerAlive = false;
+            Application.LoadLevel("GameOver");
+        }
+        else if (Input.GetMouseButton(0) && FireGunLevel3.bullets == 0 && FireGunLevel3.clip == 0 && FireGunLevel1.bullets == 0 && FireGunLevel1.clip == 0)
         {
             Screen.showCursor = true;
             isPlayerAlive = false;
@@ -79,7 +90,6 @@ public class PlayerScript : MonoBehaviour {
         int timeLeft = Mathf.RoundToInt(timeLimit);
         score += timeLeft;
         Application.LoadLevel("TransitionLevel3");
-        Screen.showCursor = true;
         timeLimit = 180.0f;
         isLevel3 = true;
     }

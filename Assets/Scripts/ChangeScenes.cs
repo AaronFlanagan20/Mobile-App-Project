@@ -9,12 +9,10 @@ public class ChangeScenes : MonoBehaviour {
         if (scene == 1)
         {
             PlayerScript.curHealth = 100;
-            PlayerScript.timeLimit = 180f;
+            PlayerScript.timeLimit = 100f;
             PlayerScript.score = 0;
             FireGunLevel1.bullets = 6;
             FireGunLevel1.clip = 1;
         }
-       
-
-	}
+    }
 }

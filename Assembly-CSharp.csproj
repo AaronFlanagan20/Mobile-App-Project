@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\GunMovement.cs" />
      <Compile Include="Assets\Scripts\L11A3AimDownSight.cs" />
      <Compile Include="Assets\Scripts\M4A1AimDownSight.cs" />
+     <Compile Include="Assets\Scripts\MusicContinue.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\RevolverAimDownSight.cs" />

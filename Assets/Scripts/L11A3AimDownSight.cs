@@ -9,10 +9,15 @@ public class L11A3AimDownSight : MonoBehaviour {
     private Rect rScope = new Rect(0, 0, Screen.width, Screen.height);
     public static bool enableAim = false; // set enableAim to true to aim
 
+    public GameObject player;
+
     void OnGUI()
     {
+        MouseLook fpLook = player.GetComponent<MouseLook>();
         if (enableAim)
         {
+            fpLook.sensitivityY = 0.5f;
+            fpLook.sensitivityX = 0.5f;
             rCamera.x = (Screen.width - rCamera.width); // center rCamera
             rCamera.y = (Screen.height - rCamera.height) / 2;
             rScope.x = (Screen.width - rScope.width) / 2; // center rScope
@@ -24,6 +29,8 @@ public class L11A3AimDownSight : MonoBehaviour {
         else
         {
             scopeCam.enabled = false;
+            fpLook.sensitivityY = 15f;
+            fpLook.sensitivityX = 15f;
         }
     }
 
