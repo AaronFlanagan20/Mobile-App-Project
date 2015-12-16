@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FireGunLevel2 : MonoBehaviour {
 
@@ -59,21 +60,27 @@ public class FireGunLevel2 : MonoBehaviour {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(ray, out hitInfo) || !Physics.Raycast(ray, out hitInfo))
+        if (Physics.Raycast(ray, out hitInfo) || !Physics.Raycast(ray, out hitInfo))//wheter we hit something or not shoot
         {
-            Vector3 hitPoint = hitInfo.point;
-            Instantiate(bulletPrefab, hitPoint, Quaternion.identity);
+            try {
+                Vector3 hitPoint = hitInfo.point;
+                Instantiate(bulletPrefab, hitPoint, Quaternion.identity);
 
-            if(bulletPrefab != null)
-            {
-                audio.PlayOneShot(shotSound);
-                bullets--;
-
-                enemy = hitInfo.collider.GetComponent<EnemyController>();
-                if (hitInfo.collider.tag == "Enemy")
+                if(bulletPrefab != null)
                 {
-                    enemy.Damage();
+                    audio.PlayOneShot(shotSound);
+                    bullets--;
+
+                    enemy = hitInfo.collider.GetComponent<EnemyController>();
+                    if (hitInfo.collider.tag == "Enemy")
+                    {
+                        enemy.Damage();
+                    }
                 }
+            }
+            catch (NullReferenceException e)
+            {//if no object is hit
+                //do nothing because we want to shoot anyway
             }
         }
     }

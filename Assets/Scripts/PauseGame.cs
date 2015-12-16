@@ -25,7 +25,6 @@ public class PauseGame : MonoBehaviour {
 		GetComponent<MouseLook>().enabled = true;
         GetComponent<FireGunLevel1>().enabled = true;
         GetComponent<CharacterController>().enabled = true;
-        Camera.main.GetComponent<MouseLook>().enabled = true;
     } 
 	
 	private void PauseGameMode() { 
@@ -35,7 +34,6 @@ public class PauseGame : MonoBehaviour {
 		GetComponent<MouseLook>().enabled = false;
         GetComponent<FireGunLevel1>().enabled = false;
         GetComponent<CharacterController>().enabled = false;
-        Camera.main.GetComponent<MouseLook>().enabled = false;
     } 
 	
 	private void OnGUI() { 

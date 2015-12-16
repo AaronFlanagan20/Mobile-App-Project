@@ -19,12 +19,14 @@ public class L11A3AimDownSight : MonoBehaviour {
             fpLook.sensitivityY = 0.5f;
             fpLook.sensitivityX = 0.5f;
             rCamera.x = (Screen.width - rCamera.width); // center rCamera
-            rCamera.y = (Screen.height - rCamera.height) / 2;
+            rCamera.y = (Screen.height - rCamera.height);
             rScope.x = (Screen.width - rScope.width) / 2; // center rScope
             rScope.y = (Screen.height - rScope.height) / 2;
             scopeCam.pixelRect = rCamera;
             scopeCam.enabled = true;
-            GUI.DrawTexture(rScope, texScope, ScaleMode.ScaleToFit, true, 0);
+            //GUI.DrawTexture(rScope, texScope, ScaleMode.ScaleToFit, true, 0);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texScope, ScaleMode.ScaleAndCrop, true, 0);
+
         }
         else
         {

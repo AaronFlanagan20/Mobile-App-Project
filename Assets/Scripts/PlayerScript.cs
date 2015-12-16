@@ -42,16 +42,19 @@ public class PlayerScript : MonoBehaviour {
         { 
             if (level1Complete)
             {
+                Screen.showCursor = true;
                 Level1();
             }
 
             if (level2Complete)
             {
+                Screen.showCursor = true;
                 Level2();
             }
 
             if (level3Complete)
             {
+                Screen.showCursor = true;
                 Level3();
             }
         }
@@ -77,7 +80,6 @@ public class PlayerScript : MonoBehaviour {
 
     void Level1()
     {
-        Screen.showCursor = true;
         int timeLeft = Mathf.RoundToInt(timeLimit);
         score += timeLeft;
         Application.LoadLevel("TransitionLevel2");
@@ -86,7 +88,6 @@ public class PlayerScript : MonoBehaviour {
 
     void Level2()
     {
-        Screen.showCursor = true;
         int timeLeft = Mathf.RoundToInt(timeLimit);
         score += timeLeft;
         Application.LoadLevel("TransitionLevel3");
@@ -96,13 +97,9 @@ public class PlayerScript : MonoBehaviour {
 
     void Level3()
     {
-        Screen.showCursor = true;
         int timeLeft = Mathf.RoundToInt(timeLimit);
         score += timeLeft;
         Application.LoadLevel("win");
-        Screen.showCursor = true;
-        http postScore = gameObject.GetComponent<http>();
-        postScore.UpdateScores(score);
     }
 
     void OnGUI()
