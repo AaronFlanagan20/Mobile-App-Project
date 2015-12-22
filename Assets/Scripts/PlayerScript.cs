@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Update()
     {
+       
         timeLimit -= Time.deltaTime;
         if(timeLimit <= 0)
         {
@@ -39,7 +40,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-        { 
+        {
             if (level1Complete)
             {
                 Screen.showCursor = true;
@@ -58,12 +59,6 @@ public class PlayerScript : MonoBehaviour {
                 Level3();
             }
         }
-        else if (Input.GetMouseButton(0) && FireGunLevel1.bullets == 0 && FireGunLevel1.clip == 0)
-         {
-            Screen.showCursor = true;
-            isPlayerAlive = false;
-            Application.LoadLevel("GameOver");
-         }
         else if (Input.GetMouseButton(0) && FireGunLevel2.bullets == 0 && FireGunLevel2.clip == 0 && FireGunLevel1.bullets == 0 && FireGunLevel1.clip == 0)
         {
             Screen.showCursor = true;
@@ -75,6 +70,16 @@ public class PlayerScript : MonoBehaviour {
             Screen.showCursor = true;
             isPlayerAlive = false;
             Application.LoadLevel("GameOver");
+        }
+
+        if (level1Complete)
+        {
+            if (Input.GetMouseButton(0) && FireGunLevel1.bullets == 0 && FireGunLevel1.clip == 0)
+            {
+                Screen.showCursor = true;
+                isPlayerAlive = false;
+                Application.LoadLevel("GameOver");
+            }
         }
     }
 
@@ -97,6 +102,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Level3()
     {
+        
         int timeLeft = Mathf.RoundToInt(timeLimit);
         score += timeLeft;
         Application.LoadLevel("win");

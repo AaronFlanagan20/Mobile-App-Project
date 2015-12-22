@@ -48,7 +48,7 @@ public class FireGunLevel2 : MonoBehaviour {
             }
         }
 
-        if(bullets == 0 && clip == 0)
+        if(bullets == 0 && clip == 0 && FireGunLevel1.bullets == 0 && FireGunLevel1.clip == 0)
         {
             Screen.showCursor = true;
             Application.LoadLevel("GameOver");

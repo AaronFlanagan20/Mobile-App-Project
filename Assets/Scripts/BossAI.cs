@@ -60,7 +60,6 @@ public class BossAI : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-
             if (hit.collider.gameObject.tag == "Player")
             {
                 PlayerScript.curHealth -= 35;
